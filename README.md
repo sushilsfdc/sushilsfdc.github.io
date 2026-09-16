@@ -1,5 +1,3 @@
-# Sfdcsushil
-
 Salesforce Technical Architect — 15+ years on the platform. This page is a map of what I've built in the open.
 
 [GitHub @sushilsfdc](https://github.com/sushilsfdc) · [GitHub @sushilgit](https://github.com/sushilgit) · [Medium](https://medium.com/@sfdcsushil) · [LinkedIn](https://linkedin.com/in/sfdcsushil) · [Trailblazer](https://www.salesforce.com/trailblazer/sfdcsushil)
