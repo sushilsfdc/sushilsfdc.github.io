@@ -6,15 +6,16 @@ Salesforce Technical Architect — 15+ years on the platform. This page is a map
 
 ## AI Agents & Generative AI on Salesforce
 
+
+### [dreamforce2025](https://github.com/sushilsfdc/dreamforce2025) — Generative AI Answers from Chatter Data
+Reference implementation from my **Dreamforce 2025 session**: an end-to-end RAG pipeline that grounds AI answers in a community's own Chatter Q&A history. Historical questions and answers are ingested into Data Cloud, transformed into a searchable vector index, and used to ground a generative prompt that answers new questions — surfaced to end users through an Experience Cloud component.
+
+*Stack: Data Cloud, Prompt Builder, Apex, LWC*
+
 ### [AuditAgentHackathon](https://github.com/sushilsfdc/AuditAgentHackathon) — "Agent for Setup"
 An Agentforce agent that lets admins interrogate their org's security posture in natural language — questions like *"Does Benjamin have access to Opportunity?"* or *"Who has the ManageUsers permission?"*. The agent plans across a set of security-focused topics (user access, audit history, license usage), pulls the underlying data through Apex, and summarizes it back in plain English rather than dumping raw records — with guardrails that make it ask for clarification when a query is ambiguous instead of guessing.
 
 *Stack: Agentforce, Apex, SOQL.*
-
-### [dreamforce2025](https://github.com/sushilsfdc/dreamforce2025) — Generative AI Answers from Chatter Data
-Reference implementation from my **Dreamforce 2025 session**: an end-to-end RAG pipeline that grounds AI answers in a community's own Chatter Q&A history. Historical questions and answers are ingested into Data Cloud, transformed into a searchable vector index, and used to ground a generative prompt that answers new questions — surfaced to end users through an Experience Cloud component, with a Flow-based fallback for reliability.
-
-*Stack: Data Cloud, Prompt Builder, Apex, LWC, Flow.*
 
 ### [EinsteinAgents](https://github.com/sushilsfdc/EinsteinAgents) — Einstein Agent & Prompt Experiments
 Earlier-generation experiments that fed into the two projects above: an Einstein Copilot agent that summarizes a user's Setup Audit Trail on request (written up in [Building an Agent for Salesforce Admins](https://medium.com/@sfdcsushil/building-agent-for-salesforce-admins-c1bc8b4f4d89)), and a prompt-guarded case creation flow that screens submissions for PII before they're saved ([write-up](https://medium.com/@sfdcsushil/941d56b7829e)).
