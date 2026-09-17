@@ -4,10 +4,24 @@ Salesforce Technical Architect — 15+ years on the platform. This page is a map
 
 ---
 
+## 📝 Latest Articles
+
+### [Code Extension in Salesforce Data 360 Search Indexes](https://medium.com/@sfdcsushil/exploring-code-extension-in-salesforce-data-360-search-indexes-5b7b58602b36)
+Data 360 search indexes ship with two built-in chunking strategies — Passage Extraction and Section-aware Chunking — but both break down on content that has no headings and whose meaningful boundaries are domain-specific. **Code Extension** lets you write your own chunker. This article walks through a proof of concept that uses a Python custom chunking function to turn a raw Salesforce debug log into two focused chunks — a main execution/error summary and the final governor-limit snapshot — then runs it locally with `sf data-code-extension`, deploys it to an org, and wires it into a search index, retriever, and prompt template so questions like *"What was the root cause of the error?"* get grounded in the right slice of the log.
+
+*Stack: Data 360 (Data Cloud), Code Extension, Python, Salesforce CLI, Prompt Builder.*
+
+### [Building a Salesforce Audit Agent with Google ADK and Salesforce MCP](https://medium.com/@sfdcsushil/building-a-salesforce-audit-agent-with-google-adk-and-salesforce-mcp-ae2ba1684d12)
+A rebuild of the Agentforce hackathon audit agent (see [AuditAgentHackathon](https://github.com/sushilsfdc/AuditAgentHackathon) below) on Google ADK, using Salesforce's `sobject-all` MCP endpoint. There is no custom tool layer: ADK's `McpToolset` connects straight to the Salesforce MCP server, discovers its tools (including `soqlQuery`), and the LLM decides which to call and writes the SOQL itself — so questions like *"Who changed the profile permissions yesterday?"* or *"How many licenses are still available?"* are answered from `SetupAuditTrail`, `ObjectPermissions`, `FieldPermissions`, and `UserLicense` with zero hardcoded queries. The whole thing is one `agent.py` plus a JWT Bearer auth helper and a system prompt. Also covers why the hand-written-tool-per-use-case alternative gives you nothing over a direct REST call, and the trade-off of less determinism and more token usage.
+
+*Stack: Google ADK, Gemini 2.5 Flash, Salesforce MCP Server, JWT Bearer OAuth, Python.*
+
+---
+
 ## AI Agents & Generative AI on Salesforce
 
 
-### [dreamforce2025](https://github.com/sushilsfdc/dreamforce2025) — Generative AI Answers from Chatter Data
+### [Dreamforce2025](https://github.com/sushilsfdc/dreamforce2025) — Generative AI Answers from Chatter Data
 Reference implementation from my **Dreamforce 2025 session**: an end-to-end RAG pipeline that grounds AI answers in a community's own Chatter Q&A history. Historical questions and answers are ingested into Data Cloud, transformed into a searchable vector index, and used to ground a generative prompt that answers new questions — surfaced to end users through an Experience Cloud component.
 
 *Stack: Data Cloud, Prompt Builder, Apex, LWC*
@@ -57,7 +71,8 @@ Same idea, for Profiles — exports to Excel for review outside Setup.
 ## Writing
 
 Longer write-ups on the ideas behind these repos live on [Medium](https://medium.com/@sfdcsushil):
-- Salesforce Audit Agent with **Google ADK + Salesforce MCP** — natural-language auditing with zero hardcoded SOQL
+- [Exploring Code Extension in Salesforce Data 360 Search Indexes](https://medium.com/@sfdcsushil/exploring-code-extension-in-salesforce-data-360-search-indexes-5b7b58602b36) — custom Python chunking for debug logs
+- [Building a Salesforce Audit Agent with Google ADK and Salesforce MCP](https://medium.com/@sfdcsushil/building-a-salesforce-audit-agent-with-google-adk-and-salesforce-mcp-ae2ba1684d12) — natural-language auditing with zero hardcoded SOQL
 - Data Cloud RAG patterns — Chatter grounding and a release-notes analysis agent
 - [Building an Agent for Salesforce Admins](https://medium.com/@sfdcsushil/building-agent-for-salesforce-admins-c1bc8b4f4d89)
 - [Connecting to external APIs with External Credentials + custom headers](https://medium.com/@sfdcsushil/connecting-to-external-api-from-salesforce-using-external-credentials-with-custom-header-option-4a7820c9d02a)
